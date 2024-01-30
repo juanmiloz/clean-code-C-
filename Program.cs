@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Timers;
 
 namespace ToDo
 {
@@ -42,37 +43,46 @@ namespace ToDo
             Console.WriteLine("4. Salir");
 
             // Read line
-            string line = Console.ReadLine();
-            return Convert.ToInt32(line);
+            string menuSelected = Console.ReadLine();
+            return Convert.ToInt32(menuSelected);
         }
 
         public static void ShowMenuRemove()
         {
             try
             {
-                Console.WriteLine("Ingrese el número de la tarea a remover: ");
-                // Show current taks
-                for (int i = 0; i < TaskList.Count; i++)
-                {
-                    Console.WriteLine((i + 1) + ". " + TaskList[i]);
+                if(TaskList.Count == 0 || TaskList == null) {
+                    Console.WriteLine("No hay tareas disponibles para eliminar");
                 }
-                Console.WriteLine("----------------------------------------");
-
-                string line = Console.ReadLine();
-                // Remove one position
-                int indexToRemove = Convert.ToInt32(line) - 1;
-                if (indexToRemove > -1)
+                else
                 {
-                    if (TaskList.Count > 0)
+                    Console.WriteLine("Ingrese el número de la tarea a remover: ");
+                    // Show current taks
+                    for (int i = 0; i < TaskList.Count; i++)
                     {
-                        string task = TaskList[indexToRemove];
+                        Console.WriteLine((i + 1) + ". " + TaskList[i]);
+                    }
+                    Console.WriteLine("----------------------------------------");
+
+                    string taskNumberToDelete = Console.ReadLine();
+                    // Remove one position
+                    int indexToRemove = Convert.ToInt32(taskNumberToDelete) - 1;
+
+                    if (indexToRemove > TaskList.Count - 1 || indexToRemove < 0)
+                    {
+                        Console.WriteLine("Numero de tarea seleccionado no valido");
+                    }
+                    else
+                    {
+                        string taskRemoved = TaskList[indexToRemove];
                         TaskList.RemoveAt(indexToRemove);
-                        Console.WriteLine("Tarea " + task + " eliminada");
+                        Console.WriteLine("Tarea " + taskRemoved + " eliminada");
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine("Ha ocurrido un error al eliminar la tarea");
             }
         }
 
@@ -81,12 +91,20 @@ namespace ToDo
             try
             {
                 Console.WriteLine("Ingrese el nombre de la tarea: ");
-                string task = Console.ReadLine();
-                TaskList.Add(task);
-                Console.WriteLine("Tarea registrada");
+                string newTask = Console.ReadLine();
+                if (newTask == "")
+                {
+                    Console.WriteLine("Debe ingresar un nombre a la tarea, este no puede ser vacio");
+                }
+                else
+                {
+                    TaskList.Add(newTask);
+                    Console.WriteLine("Tarea registrada");
+                }
             }
             catch (Exception)
             {
+                Console.WriteLine("Ha ocurrido un error al eliminar la tarea");
             }
         }
 
