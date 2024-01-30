@@ -1,0 +1,2 @@
+## Código base para completar el curso de buenas prácticas y código limpio en C#
+Este repositorio está diseñado para proporcionar una plataforma de práctica para mejorar las habilidades de codificación en C# siguiendo los principios de Clean Code (Código Limpio). Clean Code es una filosofía de desarrollo de software que enfatiza la legibilidad, la mantenibilidad y la simplicidad del código. El codigo base se encuentra en el commit 0-codigobase
