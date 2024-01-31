@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Timers;
 
 namespace ToDo
 {
@@ -50,6 +51,7 @@ namespace ToDo
         {
             try
             {
+<<<<<<< HEAD
                 Console.WriteLine("Ingrese el número de la tarea a remover: ");
                 // Show current taks
                 PrintTaskList();
@@ -62,10 +64,40 @@ namespace ToDo
                     string task = TaskList[indexToRemove];
                     TaskList.RemoveAt(indexToRemove);
                     Console.WriteLine("Tarea " + task + " eliminada");                    
+=======
+                if(TaskList.Count == 0 || TaskList == null) {
+                    Console.WriteLine("No hay tareas disponibles para eliminar");
+                }
+                else
+                {
+                    Console.WriteLine("Ingrese el número de la tarea a remover: ");
+                    // Show current taks
+                    for (int i = 0; i < TaskList.Count; i++)
+                    {
+                        Console.WriteLine((i + 1) + ". " + TaskList[i]);
+                    }
+                    Console.WriteLine("----------------------------------------");
+
+                    string taskNumberToDelete = Console.ReadLine();
+                    // Remove one position
+                    int indexToRemove = Convert.ToInt32(taskNumberToDelete) - 1;
+
+                    if (indexToRemove > TaskList.Count - 1 || indexToRemove < 0)
+                    {
+                        Console.WriteLine("Numero de tarea seleccionado no valido");
+                    }
+                    else
+                    {
+                        string taskRemoved = TaskList[indexToRemove];
+                        TaskList.RemoveAt(indexToRemove);
+                        Console.WriteLine("Tarea " + taskRemoved + " eliminada");
+                    }
+>>>>>>> try-catch
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine("Ha ocurrido un error al eliminar la tarea");
             }
         }
 
@@ -75,11 +107,24 @@ namespace ToDo
             {
                 Console.WriteLine("Ingrese el nombre de la tarea: ");
                 string newTask = Console.ReadLine();
+<<<<<<< HEAD
                 TaskList.Add(newTask);
                 Console.WriteLine("Tarea registrada");
+=======
+                if (newTask == "")
+                {
+                    Console.WriteLine("Debe ingresar un nombre a la tarea, este no puede ser vacio");
+                }
+                else
+                {
+                    TaskList.Add(newTask);
+                    Console.WriteLine("Tarea registrada");
+                }
+>>>>>>> try-catch
             }
             catch (Exception)
             {
+                Console.WriteLine("Ha ocurrido un error al eliminar la tarea");
             }
         }
 
