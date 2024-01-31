@@ -51,20 +51,6 @@ namespace ToDo
         {
             try
             {
-<<<<<<< HEAD
-                Console.WriteLine("Ingrese el número de la tarea a remover: ");
-                // Show current taks
-                PrintTaskList();
-
-                string taskNumberToDelete = Console.ReadLine();
-                // Remove one position
-                int indexToRemove = Convert.ToInt32(taskNumberToDelete) - 1;
-                if (indexToRemove > -1 && TaskList.Count > 0)
-                {   
-                    string task = TaskList[indexToRemove];
-                    TaskList.RemoveAt(indexToRemove);
-                    Console.WriteLine("Tarea " + task + " eliminada");                    
-=======
                 if(TaskList.Count == 0 || TaskList == null) {
                     Console.WriteLine("No hay tareas disponibles para eliminar");
                 }
@@ -72,11 +58,7 @@ namespace ToDo
                 {
                     Console.WriteLine("Ingrese el número de la tarea a remover: ");
                     // Show current taks
-                    for (int i = 0; i < TaskList.Count; i++)
-                    {
-                        Console.WriteLine((i + 1) + ". " + TaskList[i]);
-                    }
-                    Console.WriteLine("----------------------------------------");
+                    PrintTaskList();
 
                     string taskNumberToDelete = Console.ReadLine();
                     // Remove one position
@@ -92,7 +74,6 @@ namespace ToDo
                         TaskList.RemoveAt(indexToRemove);
                         Console.WriteLine("Tarea " + taskRemoved + " eliminada");
                     }
->>>>>>> try-catch
                 }
             }
             catch (Exception ex)
@@ -107,10 +88,6 @@ namespace ToDo
             {
                 Console.WriteLine("Ingrese el nombre de la tarea: ");
                 string newTask = Console.ReadLine();
-<<<<<<< HEAD
-                TaskList.Add(newTask);
-                Console.WriteLine("Tarea registrada");
-=======
                 if (newTask == "")
                 {
                     Console.WriteLine("Debe ingresar un nombre a la tarea, este no puede ser vacio");
@@ -120,7 +97,6 @@ namespace ToDo
                     TaskList.Add(newTask);
                     Console.WriteLine("Tarea registrada");
                 }
->>>>>>> try-catch
             }
             catch (Exception)
             {
